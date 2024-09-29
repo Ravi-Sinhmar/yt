@@ -52,7 +52,7 @@ const profile = async (res) => {
     return finalData;
   });
   
-res.status(200).json("DOne");
+res.status(200).json({status:'success',data:data});
  return data;
 }
 module.exports = profile;
