@@ -5,7 +5,6 @@ require("dotenv").config();
 const profile = async (res) => {
 
   const browser = await puppeteer.launch({
-    headless: false,
     args: [
       "--disable-setuid-sandbox",
       "--no-sandbox",
@@ -21,10 +20,7 @@ const profile = async (res) => {
   const iPhone = puppeteer.KnownDevices['iPhone 14 Pro Max'];
   await page.emulate(iPhone);
 
-  await page.goto("https://www.instagram.com" ,  {
-    "waitUntil": "networkidle0",
-    "timeout": "300000"
-  }); // Replace with the actual URL
+  await page.goto("https://www.instagram.com"); // Replace with the actual URL
   
   // Wait for the article element
   const article = await page.waitForSelector('article');
@@ -59,7 +55,7 @@ const profile = async (res) => {
     return finalData;
   });
   
-res.send("Data",data);
+res.status(200).json("DOne");
  return data;
 }
 module.exports = profile;
