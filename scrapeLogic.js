@@ -11,8 +11,7 @@ const profile = async (res) => {
       // "--single-process",
       "--no-zygote",
     ],
-         // add this
-         executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+         
   });
   const page = await browser.newPage();
   const iPhone = puppeteer.KnownDevices['iPhone 14 Pro Max'];
