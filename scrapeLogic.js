@@ -1,7 +1,5 @@
 const puppeteer = require("puppeteer");
 require("dotenv").config();
-// require executablePath from puppeteer
-const {executablePath} = require('puppeteer')
 
 // Getting Users Bio/Profile Details
 const profile = async (res) => {
@@ -14,7 +12,7 @@ const profile = async (res) => {
       "--no-zygote",
     ],
          // add this
-    executablePath: executablePath(),
+         executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
   });
   const page = await browser.newPage();
   const iPhone = puppeteer.KnownDevices['iPhone 14 Pro Max'];
